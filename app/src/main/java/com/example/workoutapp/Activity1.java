@@ -35,6 +35,7 @@ public class Activity1 extends AppCompatActivity {
         //after the delay, the main activity starts
         new Handler().postDelayed(new Runnable() {
             @Override
+            //This code creates an intent that explicitly starts MainActivity when created
             public void run() {
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(i);
