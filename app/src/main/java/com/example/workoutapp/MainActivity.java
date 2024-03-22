@@ -2,7 +2,9 @@ package com.example.workoutapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -67,5 +69,16 @@ public class MainActivity extends AppCompatActivity {
            String exerciseString = sb.toString();
            // Set the text of the TextView to the exerciseString
            work_out_type.setText("You have selected " + selectedItemFromSpinner + " as your workout. Here are some exercises you can do: " + "\n"+ exerciseString);
+       }
+       public void wannaExit (View view){
+           Intent i = new Intent(getApplicationContext(), LastActivity.class);
+           startActivity(i);
+            //Close all activities and exit app
+           new Handler().postDelayed(new Runnable() {
+               @Override
+               public void run() {
+                   finishAffinity();
+               }
+           },5000);
        }
 }
